@@ -1,5 +1,6 @@
 package com.foxowlet.patterns.gof.proxy;
 
+import java.util.Map;
 import java.util.Random;
 
 public class Worker {
@@ -11,22 +12,24 @@ public class Worker {
         this.notifier = notifier;
     }
 
-    public void doWork() {
+    public Map<String, Object> doWork() {
         try {
-            tryDoWork();
+            return tryDoWork();
         } catch (Exception e) {
             notifier.notify(e.getMessage());
+            return Map.of();
         }
     }
 
-    private void tryDoWork() {
+    private Map<String, Object> tryDoWork() {
         int input = getInput();
         ComputationResult result = computationEngine.compute(input);
         saveResult(result);
+        return result.additionalInfo();
     }
 
     private int getInput() {
-        return new Random().nextInt(1000);
+        return new Random().nextInt(10);
     }
 
     private void saveResult(ComputationResult result) {
