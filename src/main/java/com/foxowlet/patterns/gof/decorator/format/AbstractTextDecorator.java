@@ -1,5 +1,7 @@
 package com.foxowlet.patterns.gof.decorator.format;
 
+import com.foxowlet.patterns.demo.format.Text;
+
 public abstract class AbstractTextDecorator implements Text {
     private final Text text;
 

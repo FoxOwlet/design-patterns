@@ -1,4 +1,4 @@
-package com.foxowlet.patterns.gof.decorator.format;
+package com.foxowlet.patterns.demo.format;
 
 public interface Text {
     String asString();

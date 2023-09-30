@@ -1,4 +1,4 @@
-package com.foxowlet.patterns.gof.decorator.format;
+package com.foxowlet.patterns.demo.format;
 
 import com.foxowlet.patterns.gof.decorator.format.html.BoldText;
 import com.foxowlet.patterns.gof.decorator.format.html.CodeBlock;
@@ -36,7 +36,7 @@ public class Main {
     }
 
     private static Path makeResourceFilePath() {
-        return Path.of("src", "main", "resources", "decorator", "text.html");
+        return Path.of("src", "main", "resources", "demo", "format", "text.html");
     }
 
     private static void writeFile(Path filePath, String htmlFormatted) throws IOException {
