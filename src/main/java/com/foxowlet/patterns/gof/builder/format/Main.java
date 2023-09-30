@@ -9,17 +9,12 @@ public class Main {
         Text html = new TextBuilder()
                 .text("Some ")
                 .sequence()
-                .text("bold")
-                .italic()
+                .text("bold").italic()
                 .text(" and ")
-                .end()
-                .bold()
-                .text("italic")
-                .italic()
+                .end().bold()
+                .text("italic").italic()
                 .text(" text. And ")
-                .text("new Code()")
-                .bold()
-                .code()
+                .text("new Code()").bold().code()
                 .build();
 
         new ResourceFileWriter().write(html.asString());
