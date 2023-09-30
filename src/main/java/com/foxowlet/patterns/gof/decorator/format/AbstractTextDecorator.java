@@ -10,6 +10,11 @@ public abstract class AbstractTextDecorator implements Text {
     }
 
     @Override
+    public String rawContent() {
+        return text.rawContent();
+    }
+
+    @Override
     public String asString() {
         return text.asString();
     }

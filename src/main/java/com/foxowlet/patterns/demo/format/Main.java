@@ -1,5 +1,6 @@
 package com.foxowlet.patterns.demo.format;
 
+import com.foxowlet.patterns.gof.composite.format.TextSequence;
 import com.foxowlet.patterns.gof.decorator.format.html.BoldText;
 import com.foxowlet.patterns.gof.decorator.format.html.CodeBlock;
 import com.foxowlet.patterns.gof.decorator.format.html.ItalicText;
@@ -18,14 +19,25 @@ public class Main {
     };
 
     public static void main(String[] args) throws IOException {
-        String htmlFormatted = new StringBuilder()
-                .append(new PlainText("Some ").asString())
-                .append(new BoldText(new ItalicText(new PlainText("bold"))).asString())
-                .append(new PlainText(" and ").asString())
-                .append(new ItalicText(new PlainText("italic")).asString())
-                .append(new PlainText(" text. And ").asString())
-                .append(new CodeBlock(new BoldText(new PlainText("new Code()"))).asString())
-                .toString();
+        Text html = new TextSequence(
+                new PlainText("Some "),
+                new BoldText(new TextSequence(
+                        new ItalicText(new PlainText("bold")),
+                        new PlainText(" and ")
+                )),
+                new ItalicText(new PlainText("italic")),
+                new PlainText(" text. And "),
+                new CodeBlock(new BoldText(new PlainText("new Code()")))
+        );
+//        String htmlFormatted = new StringBuilder()
+//                .append(new PlainText("Some ").asString())
+//                .append(new BoldText(new ItalicText(new PlainText("bold"))).asString())
+//                .append(new BoldText(new PlainText(" and ")).asString())
+//                .append(new ItalicText(new PlainText("italic")).asString())
+//                .append(new PlainText(" text. And ").asString())
+//                .append(new CodeBlock(new BoldText(new PlainText("new Code()"))).asString())
+//                .toString();
+        String htmlFormatted = html.asString();
 
         writeResourceFile(htmlFormatted);
     }

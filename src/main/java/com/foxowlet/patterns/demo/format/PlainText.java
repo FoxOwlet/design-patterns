@@ -8,6 +8,11 @@ public class PlainText implements Text {
     }
 
     @Override
+    public String rawContent() {
+        return text;
+    }
+
+    @Override
     public String asString() {
         return text;
     }
