@@ -1,10 +1,17 @@
 package com.foxowlet.patterns.gof.decorator.format;
 
+import com.foxowlet.patterns.demo.format.Text;
+
 public abstract class AbstractTextDecorator implements Text {
     private final Text text;
 
     protected AbstractTextDecorator(Text text) {
         this.text = text;
+    }
+
+    @Override
+    public String rawContent() {
+        return text.rawContent();
     }
 
     @Override

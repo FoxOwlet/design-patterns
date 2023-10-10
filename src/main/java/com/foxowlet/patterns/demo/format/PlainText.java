@@ -1,10 +1,15 @@
-package com.foxowlet.patterns.gof.decorator.format;
+package com.foxowlet.patterns.demo.format;
 
 public class PlainText implements Text {
     private final String text;
 
     public PlainText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public String rawContent() {
+        return text;
     }
 
     @Override

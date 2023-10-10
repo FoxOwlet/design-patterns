@@ -34,4 +34,4 @@ build/
 ### Mac OS ###
 .DS_Store
 
-src/main/resources/decorator/text.html
+src/main/resources/demo/format/text.html
